@@ -1,0 +1,21 @@
+description: |
+  Driver for the AS5600 Hall effect angle sensor. This driver also includes a GPIO
+  which is used to power the sensor.
+
+  Example definition in devicetree:
+
+    sensor_as5600 {
+        compatible = "ams,as5600";
+        label = "AS5600";
+        pwr-gpios = <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_OUTPUT_ACTIVE | GPIO_OPEN_SOURCE | GPIO_DS_ALT_HIGH)>;
+    };
+
+compatible: "ams,as5600"
+
+include: i2c-device.yaml
+
+properties:
+  pwr-gpios:
+    type: phandle-array
+    required: true
+    description: GPIO used to power sensor.

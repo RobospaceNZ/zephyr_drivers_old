@@ -1,0 +1,14 @@
+# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig AS5600
+	bool "AS5600 angle sensor"
+	depends on (GPIO && I2C)
+	help
+	  Enable AS5600 angle sensor
+
+if AS5600
+module = AS5600
+module-str = AS5600 Angle sensor
+source "${ZEPHYR_BASE}/subsys/logging/Kconfig.template.log_config"
+endif #AS5600
